@@ -1,6 +1,6 @@
 import React from 'react';
 
-const EditClients = () => {
+const EditClient = () => {
   return (
     <div>
       <h1>Edit</h1>
@@ -8,4 +8,4 @@ const EditClients = () => {
   );
 }
 
-export default EditClients;
+export default EditClient;
