@@ -9,10 +9,15 @@ const FormComponent = () => {
                 .min(3, 'Name is too short')
                 .max(20, 'Name is too big')
                 .required('Name can\'t be empty'),
-        company: '',
-        email: '',
-        phone: '',
-        info: ''
+        company: Yup.string()
+                .required('Company name is required'),
+        email: Yup.string()
+                .email()
+                .required('Email is required'),
+        phone: Yup.number()
+                .positive('This is not a valid phone number')
+                .integer('This is not a valid phone number')
+                .typeError('This is not a valid phone number')
     })
 
     const handleSubmit = (values) => {
@@ -67,6 +72,9 @@ const FormComponent = () => {
                             placeholder="Client company"
                             name="company"
                         />
+                        { errors.company && touched.company ? (
+                            <Alert>{ errors.company }</Alert>
+                        ) : null}
                     </div>
                     <div className="mb-4">
                         <label 
@@ -80,6 +88,9 @@ const FormComponent = () => {
                             placeholder="Client email"
                             name="email"
                         />
+                        { errors.email && touched.email ? (
+                            <Alert>{ errors.email }</Alert>
+                        ) : null}
                     </div>
                     <div className="mb-4">
                         <label 
@@ -93,6 +104,9 @@ const FormComponent = () => {
                             placeholder="Client phone"
                             name="phone"
                         />
+                        { errors.phone && touched.phone ? (
+                            <Alert>{ errors.phone }</Alert>
+                        ) : null}
                     </div>
                     <div className="mb-4">
                         <label 
