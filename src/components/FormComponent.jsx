@@ -20,8 +20,25 @@ const FormComponent = () => {
                 .typeError('This is not a valid phone number')
     })
 
-    const handleSubmit = (values) => {
-        console.log(values)
+    const handleSubmit = async (values) => {
+        try {
+            const url = "http://localhost:4000/clients"
+
+            const resp = await fetch(url, {
+                method: 'POST',
+                body: JSON.stringify(values),
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            })
+
+            const result = await resp.json()
+
+            console.log(result)
+
+        } catch (error) {
+            console.log(error)
+        }
     }
 
     return (
