@@ -28,7 +28,7 @@ const FormComponent = ({ client, loading }) => {
         try {
             let resp
             if(client.id){
-                const url = `http://localhost:4000/clients/${client.id}`
+                const url = `${import.meta.env.VITE_API_URL}/clients/${client.id}`
 
                 resp = await fetch(url, {
                     method: 'PUT',
@@ -39,7 +39,7 @@ const FormComponent = ({ client, loading }) => {
                 })
             } else {
                 // New client
-                const url = "http://localhost:4000/clients"
+                const url = import.meta.env.VITE_API_URL
 
                 resp = await fetch(url, {
                     method: 'POST',
