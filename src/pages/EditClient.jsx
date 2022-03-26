@@ -31,12 +31,14 @@ const EditClient = () => {
     <>
         <h1 className='font-black text-4xl text-blue-900'>Edit Client</h1>
         <p className='mt-3'>Use this form to edit client data</p>
-        <FormComponent
-          client={client}
-          loading={loading}
-        />
+        { client?.name ? (
+            <FormComponent
+            client={client}
+            loading={loading}
+            />
+          ): <p>Client with id {id} does not exist</p> }
     </>
-  );
+  )
 }
 
 export default EditClient;
