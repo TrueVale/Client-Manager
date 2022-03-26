@@ -35,6 +35,7 @@ const Home = () => {
 
           const clientList = clients.filter( client => client.id !== id)
           setClients(clientList)
+          
         } catch (error) {
           console.log(error)
         }
