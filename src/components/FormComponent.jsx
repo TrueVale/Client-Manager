@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import * as Yup from 'yup'
 import Alert from "./Alert";
 
-const FormComponent = () => {
+const FormComponent = ({ client }) => {
 
     const navigate = useNavigate()
 
@@ -51,12 +51,13 @@ const FormComponent = () => {
             <h1 className="text-gray-600 font-bold text-xl uppercase text-center">Add client</h1>
             <Formik
                 initialValues={{
-                    name: '',
-                    company: '',
-                    email: '',
-                    phone: '',
-                    info: ''
+                    name: client?.name ?? '',
+                    company: client?.company ?? '',
+                    email: client?.email ?? '',
+                    phone: client?.phone ?? '',
+                    info: client?.info ?? ''
                 }}
+                enableReinitialize={true}
                 onSubmit={ async (values, {resetForm}) => {
                     await handleSubmit(values)
 
@@ -156,6 +157,10 @@ const FormComponent = () => {
             </Formik>
         </div>
     );
+}
+
+FormComponent.defaultProps = {
+    client: {}
 }
 
 export default FormComponent;
