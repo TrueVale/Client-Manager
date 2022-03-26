@@ -26,20 +26,31 @@ const FormComponent = ({ client, loading }) => {
 
     const handleSubmit = async (values) => {
         try {
-            const url = "http://localhost:4000/clients"
+            let resp
+            if(client.id){
+                const url = `http://localhost:4000/clients/${client.id}`
 
-            const resp = await fetch(url, {
-                method: 'POST',
-                body: JSON.stringify(values),
-                headers: {
-                    'Content-Type': 'application/json'
-                }
-            })
+                resp = await fetch(url, {
+                    method: 'PUT',
+                    body: JSON.stringify(values),
+                    headers: {
+                        'Content-Type': 'application/json'
+                    }
+                })
+            } else {
+                // New client
+                const url = "http://localhost:4000/clients"
 
-            const result = await resp.json()
+                resp = await fetch(url, {
+                    method: 'POST',
+                    body: JSON.stringify(values),
+                    headers: {
+                        'Content-Type': 'application/json'
+                    }
+                })
+            }
 
-            console.log(result)
-
+            await resp.json()
             navigate("/clients")
 
         } catch (error) {

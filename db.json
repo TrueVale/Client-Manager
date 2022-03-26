@@ -9,11 +9,11 @@
       "id": 1
     },
     {
-      "name": "wdni",
-      "company": "ioanwdoi",
-      "email": "nwdaio@wand.awd",
-      "phone": "1213123234",
-      "info": "awdoiandoianwdoianwdoa",
+      "name": "Alberto",
+      "company": "Blizzard",
+      "email": "alb@bliz.co",
+      "phone": "123456789",
+      "info": "Good programmer!",
       "id": 2
     },
     {
@@ -23,6 +23,14 @@
       "phone": "123123123",
       "info": "wadawdawdwad",
       "id": 3
+    },
+    {
+      "name": "Nick",
+      "company": "Nickname",
+      "email": "nick@name.co",
+      "phone": "123456789",
+      "info": "COM",
+      "id": 4
     }
   ]
 }
