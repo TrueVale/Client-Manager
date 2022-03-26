@@ -48,7 +48,7 @@ const FormComponent = ({ client }) => {
 
     return (
         <div className="bg-white mt-10 px-5 py-10 rounded-md shadow-md md:w-3/4 mx-auto">
-            <h1 className="text-gray-600 font-bold text-xl uppercase text-center">Add client</h1>
+            <h1 className="text-gray-600 font-bold text-xl uppercase text-center">{ client?.name ? 'Edit Client' : 'Add Client' }</h1>
             <Formik
                 initialValues={{
                     name: client?.name ?? '',
@@ -149,7 +149,7 @@ const FormComponent = ({ client }) => {
                     </div>
                     <input
                         type="submit"
-                        value="Add Client"
+                        value={ client?.name ? 'Save changes' : 'Add client' }
                         className="mt-5 w-full bg-blue-900 p-3 text-white uppercase font-bold text-lg rounded-md"
                     />
                 </Form>
