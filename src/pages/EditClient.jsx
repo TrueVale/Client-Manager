@@ -33,6 +33,7 @@ const EditClient = () => {
         <p className='mt-3'>Use this form to edit client data</p>
         <FormComponent
           client={client}
+          loading={loading}
         />
     </>
   );
